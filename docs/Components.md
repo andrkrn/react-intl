@@ -160,7 +160,9 @@ props: Intl.DateTimeFormatOptions &
   {
     value: any,
     format: string,
-    children: (formattedDate: string) => ReactElement,
+    children: (formattedDate: string | Intl.DateTimeFormatPart[]) =>
+      ReactElement,
+    shouldFormatToParts: boolean,
   };
 ```
 
@@ -168,7 +170,7 @@ By default `<FormattedDate>` will render the formatted date into a `<span>`. If 
 
 **Example:**
 
-```js
+```tsx
 <FormattedDate value={new Date(1459832991883)} />
 ```
 
@@ -178,12 +180,28 @@ By default `<FormattedDate>` will render the formatted date into a `<span>`. If 
 
 **Example with Options:**
 
-```js
+```tsx
 <FormattedDate
   value={new Date(1459832991883)}
   year="numeric"
   month="long"
   day="2-digit"
+/>
+```
+
+```html
+<span>April 05, 2016</span>
+```
+
+**shouldFormatToParts**
+
+```tsx
+<FormattedDate
+  value={new Date(1459832991883)}
+  year="numeric"
+  month="long"
+  day="2-digit"
+  shouldFormatToParts={true}
 />
 ```
 
