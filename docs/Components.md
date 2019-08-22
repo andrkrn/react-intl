@@ -201,12 +201,22 @@ By default `<FormattedDate>` will render the formatted date into a `<span>`. If 
   year="numeric"
   month="long"
   day="2-digit"
-  shouldFormatToParts={true}
-/>
+  shouldFormatToParts
+>
+  {parts => (
+    <>
+      <b>{parts[0].value}</b>
+      {parts[1].value}
+      <small>{parts[2].value}</small>
+    </>
+  )}
+</FormattedDate>
 ```
 
 ```html
-<span>April 05, 2016</span>
+<span>
+  <b>April</b> <small>05</small>
+</span>
 ```
 
 ### `FormattedTime`

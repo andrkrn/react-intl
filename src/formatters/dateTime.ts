@@ -26,7 +26,7 @@ const DATE_TIME_FORMAT_OPTIONS: Array<keyof Intl.DateTimeFormatOptions> = [
   'timeZoneName',
 ];
 
-function getFormatter(
+export function getFormatter(
   {
     locale,
     formats,

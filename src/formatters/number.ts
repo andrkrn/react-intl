@@ -16,7 +16,7 @@ const NUMBER_FORMAT_OPTIONS: Array<keyof Intl.NumberFormatOptions> = [
   'maximumSignificantDigits',
 ];
 
-function getFormatter(
+export function getFormatter(
   {
     locale,
     formats,

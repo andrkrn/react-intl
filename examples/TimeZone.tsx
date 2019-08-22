@@ -13,8 +13,20 @@ const App: React.FC<Props> = ({currentTime = Date.now()}) => {
         <br />
         The time in Tokyo is: <FormattedTime value={currentTime} />
         <br />
-        <FormattedDate value={currentTime} shouldFormatToParts>
-          {parts => <>{JSON.stringify(parts)}</>}
+        <FormattedDate
+          value={new Date(1459832991883)}
+          year="numeric"
+          month="long"
+          day="2-digit"
+          shouldFormatToParts
+        >
+          {(parts: Intl.DateTimeFormatPart[]) => (
+            <>
+              <b>{parts[0].value}</b>
+              {parts[1].value}
+              <small>{parts[2].value}</small>
+            </>
+          )}
         </FormattedDate>
       </p>
     </IntlProvider>
